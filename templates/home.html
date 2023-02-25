@@ -2,11 +2,43 @@
 <html>
  <head>
     <tile>Careers</tile>
-  
+    <style>
+        h1{
+            font-size: 40px;
+            font-family:'Courier New', Courier, monospace;
+            font-weight: normal;
+            color:rgb(11, 135, 236);
+            text-align: center;
+        }
+
+        #banner{
+            height: 100px;
+            width:1000px;
+            object-fit: cover;
+        }
+
+        h2{
+            font-family: Roboto;
+            font-size: 32px;
+            color:rgb(32, 108, 171);
+            text-align: center;
+            font-weight: normal;
+        }
+
+        p{
+            font-family: Roboto;
+            color: black;
+        }
+        #container{
+            max-width: 720px;
+            margin:0 auto 0 auto;
+        }
+    </style>
  </head>
-   <body>
+  <body>
+  <div id="container">
     <h1>Careers</h1>
-    <img src="http://127.0.0.1:5000/static/javier.jpg" style="max-width:100%;height:auto;">
+    <img id="banner" src="http://127.0.0.1:5000/static/javier.jpg">
     <h2>About Careers</h2>
     <p>
         Lorem Ipsum is simply dummy text of the
@@ -25,6 +57,9 @@
     </p>
     <h2>Open Positions</h2>
     <p>TO DO</p>
+    <div>
     <button>Contact Us</button>
+    </div>
+    </div>
    </body>
 </html>
