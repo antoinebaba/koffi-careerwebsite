@@ -2,7 +2,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route("/")
-def hello_world():
+def hello_Koffi():
     return render_template('home.html')
 
 if __name__ == '__name__':
