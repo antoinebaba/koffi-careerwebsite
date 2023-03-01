@@ -11,18 +11,30 @@
     crossorigin="anonymous">
     <style>
         #banner{
-            height: 360px;
-           width: 1200px;
+            height: 100%;
+           width: 100%;
             object-fit: cover;
         }
+
+        #box {
+        width: 100%;
+        height: 250px;
+        border: 5px solid rgb(139, 134, 102);
+      }
     </style>
  </head>
+ {% include 'navbar.html'%}
+ <div id="box">
+    <img class=".img-fluid" id="banner" src="http://127.0.0.1:5000/static/javier.jpg" alt="Directions image">
+ </div>
   <body>
   <div class="container">
     <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
-    <img class=".img-fluid" id="banner" src="http://127.0.0.1:5000/static/javier.jpg" alt="Directions image">
-    <h2 class="text-center mt-2 mb-4">About Careers</h2>
-    <p class="lead">
+    
+    <!--adding image to the paragraph-->
+    <div class="row" style="margin-bottom:10px">
+        <div class="col-md-6">
+        <p class="lead">
         Lorem Ipsum is simply dummy text of the
          printing and typesetting industry. Lorem
           Ipsum has been the industry's standard dummy
@@ -36,7 +48,14 @@
                  containing Lorem Ipsum passages, and more recently
                   with desktop publishing software like Aldus PageMaker
                    including versions of Lorem Ipsum.
-    </p>
+        </p>
+       </div>
+       <!--do not display image on mobile-->
+    <div class="d-none d-md-block col-md-6">
+        <img src="/static/people.jpg" alt="People Working!" style="height: 300px;">
+    </div>
+    </div>
+
     <h2 class="text-center mt-2 mb-4">Open Positions</h2>
     <div>
         {% for job in jobs %}
@@ -46,7 +65,7 @@
     <div class="text-center mt-2 mb-4">
     <button class="btn btn-primary btn-lg">Contact Us</button>
     </div>
-    <p class="text-center mt-2 mb-4">Copyright 2023, Careers</p>
     </div>
+    {% include 'footer.html' %}
    </body>
 </html>
