@@ -10,16 +10,11 @@ engine = create_engine(
     }
 })
 
-with engine.connect() as conn:
-    result = conn.execution_options(stream_results=True).execute(text("select * from jobs"))
-    
-    print("type(result):", type(result))
-    result_all = result.all()
-    print("type(result.all()):", type(result_all))
-    first_result = result_all[0]
-
-    print("type(first_result):", type(first_result))
-    first_result_dict = dict(result_all[0].__dict__)
-    print("type(first_result_dict):", type(first_result_dict))
-    print(first_result_dict)
-
+def load_job_from_db():
+  with engine.connect() as conn:
+     result = conn.execution_options(stream_results=True).execute(text("select * from jobs"))
+     column_names = result.keys()
+     jobs = []
+     for row in result.all():
+         jobs.append(dict(zip(column_names, row)))
+     return jobs
