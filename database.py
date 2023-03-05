@@ -10,7 +10,7 @@ engine = create_engine(
     }
 })
 
-def load_job_from_db():
+def load_jobs_from_db():
   with engine.connect() as conn:
      result = conn.execution_options(stream_results=True).execute(text("select * from jobs"))
      column_names = result.keys()
@@ -18,3 +18,17 @@ def load_job_from_db():
      for row in result.all():
          jobs.append(dict(zip(column_names, row)))
      return jobs
+
+#Defined job load job row
+def load_job_from_db(id):
+   with engine.connect() as conn:
+      result = conn.execution_options(stream_results=True).execute(
+         text(f"SELECT * FROM jobs WHERE id = {id}"),
+      )
+      rows = []
+      for row in result.all():
+        rows.append(row._mapping)
+      if len(rows) == 0:
+         return None
+      else:
+        return [dict(row) for row in rows]
