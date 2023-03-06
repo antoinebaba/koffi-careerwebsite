@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%for job in job%}
+        <title>{{job.title}} - Koffi Careers</title>
+        {%endfor%}
+    </head>
+    <body>
+        {%for job in job%}
+        <h3>Title</h3>
+        <p>{{job.title}}</p>
+        <h3>Location</h3>
+        <p>{{job.location}}</p>
+        <h3>Salary</h3>
+        <p>{{job.currency}}{{job.salary}}</p>
+        <h3>Responsibilities</h3>
+        <p>{{job.responsibilities}}</p>
+        {%endfor%}
+    </body>
+</html>

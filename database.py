@@ -19,7 +19,7 @@ def load_jobs_from_db():
          jobs.append(dict(zip(column_names, row)))
      return jobs
 
-#Defined job load job row
+#Defined job load job
 def load_job_from_db(id):
    with engine.connect() as conn:
       result = conn.execution_options(stream_results=True).execute(

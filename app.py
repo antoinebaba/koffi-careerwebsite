@@ -24,7 +24,8 @@ def list_jobs():
 @app.route("/job/<id>")
 def show_job(id):
     job = load_job_from_db(id)
-    return jsonify(job)
+    return render_template('jobpage.html',job=job)
+#jsonify(job)
 
 if __name__ == '__name__':
     app.run(host='0.0.0.0', debug=True)
